@@ -15,4 +15,12 @@ install:
   - pip install -r requirements.txt
 script:
   - cd decide
+  - cp travis_local_settings.py local_settings.py
   - if [[ $TRAVIS_BRANCH == "master" ]]; then python manage.py test --keepdb; fi;
+deploy:
+    provider: heroku
+    app: examen1jgc
+    strategy: git
+    apikey: $HEROKU_TOKEN
+    on:
+      branch: master
