@@ -1,7 +1,7 @@
 dist: xenial
+
 services:
   - postgresql
-sudo: required
 addons:
   postgresql: "9.4"
 before_script:
